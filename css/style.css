@@ -18,8 +18,28 @@ nav {
   padding: 30px 15px 15px 15px;
 }
 
+nav a {
+  font-size: 22px;
+  margin: 0 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 60px 15px;
+}
+
 #logo-container {
+  display: inline-block;
   padding-top: 10px;
+  background: #47a0ce;
+  position: relative;
+  top: 20px;
+  padding: 10px;
+}
+
+#logo-container h2 {
+  margin-bottom: 0;
 }
 
 .bg-dark {
@@ -32,9 +52,16 @@ nav {
 }
 
 #hero {
-
+  background: black;
+  background-image: url("../images/background.png");
+  color: white;
+  text-align: center;
+  padding: 60px 15px;
+  font-size: 42px;
 }
 
 .callout {
-
+  border: 5px dotted #47a0ce;
+  text-align: center;
+  margin: 0 30px;
 }
