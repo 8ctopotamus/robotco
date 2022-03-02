@@ -10,6 +10,9 @@ html, body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #47a0ce;
   text-align: center;
 }
@@ -19,6 +22,8 @@ nav {
 }
 
 nav a {
+  color: black;
+  font-weight: bold;
   font-size: 22px;
   margin: 0 20px;
 }
@@ -64,4 +69,30 @@ main {
   border: 5px dotted #47a0ce;
   text-align: center;
   margin: 0 30px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.gallery-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  margin: 2px;
+  width: 240px;
+  height: 240px;
 }
