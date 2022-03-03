@@ -1,10 +1,12 @@
 :root {
   --brandPrimary: #47a0ce;
   --brandSecondary: #47ce86;
+  --brandSecondaryDark: #32b46f;
   --primaryBorder: 6px solid var(--brandPrimary);
   --secondaryBorder: 6px solid var(--brandSecondary);
   --borderRadius: 15px;
   --awesomeRadius: 0px var(--borderRadius) 0px var(--borderRadius);
+  --transition: all 260ms ease-in-out;
 }
 
 /* Global sekector */
@@ -35,12 +37,18 @@ nav {
 }
 
 .btn {
+  cursor: pointer;
   padding: 5px 10px;
   color: black;
   background: var(--brandSecondary);
   text-decoration: none;
   font-weight: bold;
   padding: 10px 25px;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--brandSecondaryDark);
 }
 
 .text-primary {
@@ -119,6 +127,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer;
   border: var(--primaryBorder);
   background: black;
   color: white;
@@ -128,10 +137,7 @@ main {
   height: 240px;
   font-weight: bold;
   position: relative;
-}
-
-.gallery-item p {
-  margin: 0;
+  transition: var(--transition);
 }
 
 .on-sale {
@@ -140,6 +146,28 @@ main {
   position: absolute;
   top: 10px; 
   left: 0;
+}
+
+.gallery-item i {
+  transition: var(--transition);
+}
+
+.gallery-item p {
+  margin: 0;
+}
+
+.gallery-item:hover {
+  background-color: var(--brandSecondary);
+  border-color: white; 
+  color: black;
+}
+
+.gallery-item:hover .on-sale {
+  background: white;
+}
+
+.gallery-item:hover i {
+  transform: scale(1.25);
 }
 
 .socials a {
