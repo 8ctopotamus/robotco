@@ -1,4 +1,15 @@
-/* Global */
+:root {
+  --brandPrimary: #47a0ce;
+  --brandSecondary: #47ce86;
+  --brandSecondaryDark: #32b46f;
+  --primaryBorder: 6px solid var(--brandPrimary);
+  --secondaryBorder: 6px solid var(--brandSecondary);
+  --borderRadius: 15px;
+  --awesomeRadius: 0px var(--borderRadius) 0px var(--borderRadius);
+  --transition: all 260ms ease-in-out;
+}
+
+/* Global sekector */
 * {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -9,16 +20,61 @@ html, body {
   height: 100%;
 }
 
+body {
+  padding-bottom: 100px;
+}
+
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background: #47a0ce;
+  justify-content: space-between;
+  background: var(--brandPrimary);
   text-align: center;
 }
 
 nav {
   padding: 30px 15px 15px 15px;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+}
+
+.two-cols {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: black;
+  background: var(--brandSecondary);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 25px;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--brandSecondaryDark);
+}
+
+.text-primary {
+  color: var(--brandPrimary);
+}
+
+.text-secondary {
+  color: var(--brandSecondary);
 }
 
 nav a {
@@ -31,13 +87,14 @@ nav a {
 main {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 60px 15px;
 }
 
 #logo-container {
   display: inline-block;
   padding-top: 10px;
-  background: #47a0ce;
+  background: var(--brandPrimary);
   position: relative;
   top: 20px;
   padding: 10px;
@@ -47,35 +104,46 @@ main {
   margin-bottom: 0;
 }
 
+.pt-60 {
+  padding-top: 60px;
+}
+.pb-60 {
+  padding-bottom: 60px;
+}
+
 .bg-dark {
   background: black;
-  color: #47a0ce;
+  color: var(--brandPrimary);
 }
 
 .bg-dark a {
-  color: #47a0ce;
+  color: var(--brandPrimary);
 }
 
 #hero {
   background: black;
   background-image: url("../images/background.png");
+  border-bottom: var(--primaryBorder);
   color: white;
   text-align: center;
   padding: 60px 15px;
   font-size: 42px;
+  position: relative;
+}
+
+#hero canvas {
+  position: absolute;
+  top: 0; 
+  left: 0;
 }
 
 .callout {
-  border: 5px dotted #47a0ce;
+  border: 6px dotted var(--brandPrimary);
   text-align: center;
   margin: 0 30px;
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
+  padding: 30px 15px;
+  flex: 1 0 400px;
+  margin-bottom: 25px;
 }
 
 #gallery {
@@ -88,11 +156,94 @@ footer {
 
 .gallery-item {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  border: var(--primaryBorder);
   background: black;
   color: white;
-  margin: 2px;
+  border-radius: var(--awesomeRadius);
+  margin: 5px;
   width: 240px;
   height: 240px;
+  font-weight: bold;
+  position: relative;
+  transition: var(--transition);
+}
+
+.on-sale {
+  background: var(--brandSecondary);
+  color: black;
+  position: absolute;
+  top: 10px; 
+  left: 0;
+}
+
+.gallery-item i {
+  transition: var(--transition);
+}
+
+.gallery-item p {
+  margin: 0;
+}
+
+.gallery-item:hover {
+  background-color: var(--brandSecondary);
+  border-color: white; 
+  color: black;
+}
+
+.gallery-item:hover .on-sale {
+  background: white;
+}
+
+.gallery-item:hover i {
+  transform: scale(1.25);
+}
+
+.socials a {
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: var(--primaryBorder);
+  padding: 15px;
+  margin-top: 60px;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  header nav {
+    background: black;
+  }
+
+  header nav a {
+    color: var(--brandPrimary);
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .callout {
+    width: 100%;
+  }
+
+  #hero h1,
+  #hero a {
+    font-size: 30px;
+  }
+
+  footer {
+    flex-direction: column;
+  }
 }
