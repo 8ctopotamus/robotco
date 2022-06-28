@@ -1,3 +1,5 @@
+import '../css/style.css'
+
 $(document).ready(function() {
   $('.tlt').textillate()
   
