@@ -1,8 +1,6 @@
 $(document).ready(function() {
   $('.tlt').textillate()
   
-
-
   function beforeReveal(el) {
     el.classList.add('animate__animated animate__fadeInLeft')
   }
