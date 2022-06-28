@@ -1,10 +1,6 @@
 $(document).ready(function() {
   $('.tlt').textillate()
   
-  function beforeReveal(el) {
-    el.classList.add('animate__animated animate__fadeInLeft')
-  }
-
   ScrollReveal({ 
     reset: true,
     origin: 'left',
@@ -32,7 +28,6 @@ $(document).ready(function() {
       el.classList.remove('animate__animated','animate__fadeInRight')
     },
   }).reveal('.reveal-right')
-
 
   particlesJS.load('hero', './js/particles.json', function() {
     console.log('callback - particles.js config loaded');
