@@ -9,7 +9,7 @@
   --transition: all 260ms ease-in-out;
 }
 
-/* Global sekector */
+/* Global selector */
 * {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -98,6 +98,7 @@ main {
   position: relative;
   top: 20px;
   padding: 10px;
+  z-index: 1;
 }
 
 #logo-container h2 {
