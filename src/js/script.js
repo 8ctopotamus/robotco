@@ -34,6 +34,4 @@ $(document).ready(function() {
   particlesJS.load('hero', './src/js/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
-
-  testFunc()
 })
