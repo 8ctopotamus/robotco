@@ -1,1 +1,44 @@
-(()=>{"use strict";$(document).ready((function(){$(".tlt").textillate(),ScrollReveal({reset:!0,origin:"left",viewOffset:{top:100},beforeReveal:function(e){e.children[0].classList.add("animate__animated","animate__fadeInLeft")},afterReveal:function(e){e.classList.remove("animate__animated animate__fadeInLeft")}}).reveal(".reveal-left"),ScrollReveal({reset:!0,origin:"right",viewOffset:{top:100},beforeReveal:function(e){e.classList.add("animate__animated","animate__fadeInRight")},afterReveal:function(e){e.classList.remove("animate__animated","animate__fadeInRight")}}).reveal(".reveal-right"),particlesJS.load("hero","./src/js/particles.json",(function(){console.log("callback - particles.js config loaded")})),console.log("Hello from module2")}))})();
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+
+
+$(document).ready(function() {
+  $('.tlt').textillate()
+  
+  ScrollReveal({ 
+    reset: true,
+    origin: 'left',
+    viewOffset: {
+      top: 100,
+    },
+    beforeReveal: function beforeReveal(el) {
+      el.children[0].classList.add('animate__animated', 'animate__fadeInLeft')
+    },
+    afterReveal: function beforeReveal(el) {
+      el.classList.remove('animate__animated animate__fadeInLeft')
+    },
+  }).reveal('.reveal-left')
+
+  ScrollReveal({ 
+    reset: true,
+    origin: 'right',
+    viewOffset: {
+      top: 100,
+    },
+    beforeReveal: function beforeReveal(el) {
+      el.classList.add('animate__animated', 'animate__fadeInRight')
+    },
+    afterReveal: function beforeReveal(el) {
+      el.classList.remove('animate__animated','animate__fadeInRight')
+    },
+  }).reveal('.reveal-right')
+
+  particlesJS.load('hero', './src/js/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+
+  testFunc()
+})
+/******/ })()
+;

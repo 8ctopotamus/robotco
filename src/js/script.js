@@ -1,4 +1,4 @@
-import testFunc from './module2'
+import '../css/style.css'
 
 $(document).ready(function() {
   $('.tlt').textillate()
