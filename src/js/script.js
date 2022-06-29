@@ -1,3 +1,5 @@
+import testFunc from './module2'
+
 $(document).ready(function() {
   $('.tlt').textillate()
   
@@ -29,7 +31,9 @@ $(document).ready(function() {
     },
   }).reveal('.reveal-right')
 
-  particlesJS.load('hero', './js/particles.json', function() {
+  particlesJS.load('hero', './src/js/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
+
+  testFunc()
 })
