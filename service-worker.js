@@ -1,6 +1,7 @@
-const STATIC_CACHE = 'v1'
+const STATIC_CACHE = 'static_cache_v1'
 
 const assets = [
+  '/',
   'index.html',
   'site.webmanifest',
   'dist/main.css',
@@ -33,3 +34,33 @@ const assets = [
   "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js",
   "src/js/particles.json",
 ]
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE)
+      .then(cache => cache.addAll(assets))
+  )
+  self.skipWaiting()
+})
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== STATIC_CACHE) {
+            return caches.delete(key)
+          }
+        })
+      )
+    })
+  )
+  self.clients.claim()
+})
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then((res) => res || fetch(event.request))
+  )
+})

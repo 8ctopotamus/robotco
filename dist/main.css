@@ -126,7 +126,6 @@ main {
 
 #hero {
   background: black;
-  background-image: url(e755d9cb22167f005a5b.png);
   border-bottom: var(--primaryBorder);
   color: white;
   text-align: center;
