@@ -1,27 +1,28 @@
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const CSSMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/js/script.js',
+  entry: "./src/js/script.js",
   output: {
     path: `${__dirname}/dist`,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
-    new MiniCSSExtractPlugin()
+    new MiniCssExtractPlugin(),
   ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCSSExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       }
-    ]
+    ],
   },
   optimization: {
     minimizer: [
-      new CSSMinimizerPlugin()
-    ],
+      '...',
+      new CssMinimizerPlugin(),
+    ]
   }
 }
