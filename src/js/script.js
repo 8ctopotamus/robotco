@@ -13,7 +13,7 @@ $(document).ready(function() {
       el.children[0].classList.add('animate__animated', 'animate__fadeInLeft')
     },
     afterReveal: function beforeReveal(el) {
-      el.classList.remove('animate__animated animate__fadeInLeft')
+      el.classList.remove('animate__animated, animate__fadeInLeft')
     },
   }).reveal('.reveal-left')
 
