@@ -35,7 +35,7 @@ $(document).ready(function() {
     console.log('callback - particles.js config loaded');
   });
 
-  // 
+  // get a random quote
   fetch('https://dummyjson.com/quotes/random')
     .then(res => res.json())
     .then(json => {

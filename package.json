@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "npm run watch && npx live-server",
+    "dev": "concurrently \"npm run watch\" \"npx live-server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/8ctopotamus/robotco#readme",
   "devDependencies": {
+    "concurrently": "^7.2.2",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.1",

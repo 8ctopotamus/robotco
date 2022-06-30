@@ -60,6 +60,27 @@ self.addEventListener('activate', event => {
 })
 
 self.addEventListener('fetch', event => {
+  // network first, fall back to cache
+  if (event.request.url.includes('dummyjson.com') && event.request.method === 'GET') {
+    event.respondWith(
+      caches.open(DATA_CACHE)
+        .then(cache => {
+          return fetch(event.request)
+            .then(response => {
+              // save the response before returning it
+              if (response.status === 200) {
+                cache.put(event.request.url, response.clone())
+              }
+              return response
+            })
+            .catch(() => cache.match(event.request))
+        })
+        .catch(() => console.log(err))
+    )
+    return
+  }
+
+  // cache first, fall back to network
   event.respondWith(
     caches.match(event.request)
       .then((res) => res || fetch(event.request))
