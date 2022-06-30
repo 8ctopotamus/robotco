@@ -1,6 +1,7 @@
 const STATIC_CACHE = 'static_cache_v1'
+const DATA_CACHE = 'data_cache_v1'
 
-const assets = [
+const FILES_TO_CACHE = [
   '/',
   'index.html',
   'site.webmanifest',
@@ -38,9 +39,9 @@ const assets = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
-      .then(cache => cache.addAll(assets))
+      .then(cache => cache.addAll(FILES_TO_CACHE))
   )
-  self.skipWaiting()
+  self.skipWaiting() // forces to the waiting sw to become the active sw: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
 })
 
 self.addEventListener('activate', event => {
@@ -55,7 +56,7 @@ self.addEventListener('activate', event => {
       )
     })
   )
-  self.clients.claim()
+  self.clients.claim() // set this sw as controller for all clients: https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim
 })
 
 self.addEventListener('fetch', event => {

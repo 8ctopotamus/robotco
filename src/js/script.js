@@ -34,4 +34,13 @@ $(document).ready(function() {
   particlesJS.load('hero', './src/js/particles.json', function() {
     console.log('callback - particles.js config loaded');
   });
+
+  // 
+  fetch('https://dummyjson.com/quotes/random')
+    .then(res => res.json())
+    .then(json => {
+      const { quote, author } = json
+      $('#quote').text(`"${quote}" - ${author}`)
+    })
+
 })
