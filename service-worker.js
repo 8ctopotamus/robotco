@@ -2,7 +2,7 @@ console.log('Hello from Service Worker!')
 
 const STATIC_CACHE = 'static_cache_v1'
 
-const assets = [
+const FILES_TO_CACHE = [
   '/',
   'index.html',
   'site.webmanifest',
