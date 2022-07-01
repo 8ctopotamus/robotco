@@ -1,6 +1,5 @@
-console.log('Hello from Service Worker!')
-
-const STATIC_CACHE = 'static_cache_v1'
+const STATIC_CACHE = 'static_cache_v2'
+const DATA_CACHE = 'data_cache_v1'
 
 const FILES_TO_CACHE = [
   '/',
@@ -36,3 +35,26 @@ const FILES_TO_CACHE = [
   "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js",
   "src/js/particles.json",
 ]
+
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE)
+      .then(cache => cache.addAll(FILES_TO_CACHE))
+  )
+  self.skipWaiting() // forces the waiting sevice worker to become the active service worker: https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
+})
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(
+        keyList.map(key => {
+          if (key !== STATIC_CACHE) {
+            return caches.delete(key)
+          }
+        })
+      )
+    })
+  )
+  self.clients.claim() // active service worker to set itself as the controller for all clients within its scope: https://developer.mozilla.org/en-US/docs/Web/API/Clients/claim
+})
